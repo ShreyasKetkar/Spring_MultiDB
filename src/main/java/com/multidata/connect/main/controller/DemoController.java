@@ -16,6 +16,8 @@ import com.multidata.connect.main.db2.entities.EmployeeData;
 import com.multidata.connect.main.db2.repositories.EmployeeRepository;
 import com.multidata.connect.main.db3.entities.Person;
 import com.multidata.connect.main.db3.repositories.DataRepository;
+import com.multidata.connect.main.db4.entities.Employee;
+import com.multidata.connect.main.db4.repositories.EmployeeCouchbaseRepository;
 
 @RestController
 public class DemoController {
@@ -31,13 +33,15 @@ public class DemoController {
 	@Autowired
 	DataRepository dataRepo;
 	
+	@Autowired
+	EmployeeCouchbaseRepository employeeCBRepo;
 	@GetMapping("/data")
 	public String addData() {
 		
 		studentRepo.save(new StudentData("shreyas","ketkar","shreyas.ketkar@live.com"));
 		employeeRepo.save(new EmployeeData("shreyas","ketkar","shreyas.ketkar@live.com"));
 		dataRepo.save( new Person("shreyas","ketkar","shreyas.ketkar@live.com"));
-		
+		employeeCBRepo.save(new Employee("shreyas","ketkar","shreyas.ketkar@live.com"));
 		return "Data Added";
 		
 		
@@ -67,6 +71,11 @@ public class DemoController {
 		return dataRepo.findAll();
 	}
 	
+	@GetMapping("/getData2")
+	public Object getData2()
+	{
+		return employeeCBRepo.findAll();
+	}
 	
 	
 	@GetMapping("/getEmployee")
