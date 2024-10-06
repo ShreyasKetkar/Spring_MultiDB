@@ -7,10 +7,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 
-public class SpringCouchbaseApplication {
+public class SpringMultiDBpplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringCouchbaseApplication.class, args);
+		SpringApplication.run(SpringMultiDBpplication.class, args);
 	}
 
 }

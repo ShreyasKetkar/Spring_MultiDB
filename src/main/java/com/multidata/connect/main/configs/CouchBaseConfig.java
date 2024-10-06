@@ -9,6 +9,7 @@ import org.springframework.data.couchbase.config.AbstractCouchbaseConfiguration;
 import org.springframework.data.couchbase.core.convert.CustomConversions;
 import org.springframework.data.couchbase.repository.config.EnableCouchbaseRepositories;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableCouchbaseRepositories(
 		basePackages= {
@@ -40,6 +41,7 @@ public class CouchBaseConfig extends AbstractCouchbaseConfiguration{
 		return "employee-data";
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Bean(name = "couchbaseConversions")
     public CustomConversions couchbaseConversions() {
         return new CustomConversions(Collections.emptyList());
